@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			".modules": ".json",
+			".target": ".json",
+			".uproject": ".json",
+			".uplugin": ".json",
+			"nemain.h": "c",
+			"grass_tex_bin.h": "c",
+			"helloguest.h": "c",
+			"level.h": "c",
+			"menu.h": "c",
+			"button_pal_bin.h": "c",
+			"testlevel.h": "c",
+			"system_error": "c",
+			"xlocale": "c",
+			"typeinfo": "c",
+			"globals.h": "c",
+			"nephysics.h": "c",
+			"nemodel.h": "c",
+			"menulevel.h": "c",
+			"assets.h": "c"
+		}
+	}
+}

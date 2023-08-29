@@ -1,0 +1,8 @@
+.vscode/
+assets/
+build/
+include/
+lib/
+tools/
+*.elf
+*.nds
