@@ -22,8 +22,8 @@ void MenuLevel_Load() {
     LogoPalette = NE_PaletteCreate();
     ButtonMaterial = NE_MaterialCreate();
     ButtonPalette = NE_PaletteCreate();
-    Button = NE_GUIButtonCreate(116, 16,  // Upper-left pixel
-                                           180, 80); // Down-right pixel
+    Button = NE_GUIButtonCreate(0, 192 - 64,  // Upper-left pixel
+                                           64, 192); // Down-right pixel
 
     // Loading
     NE_MaterialTexLoad(LogoMaterial, NE_PAL16, 128, 128, NE_TEXGEN_TEXCOORD,
@@ -38,8 +38,8 @@ void MenuLevel_Load() {
     NE_CameraSetI(Camera,
                   0, 0, 0,
                   1, 0, 0, 
-                  0, 1, 0
-    );
+                  0, 1, 0);
+    NE_ClippingPlanesSet(10, 10000);
     NE_MaterialSetPalette(LogoMaterial, LogoPalette);
     NE_SpriteSetPos(LogoSprite, 256 / 2 - 108 / 2, 192 / 2 - 128 / 2);
     NE_SpriteSetSize(LogoSprite, 128, 128);
@@ -47,9 +47,7 @@ void MenuLevel_Load() {
     NE_SpriteSetMaterial(LogoSprite, LogoMaterial);
     NE_MaterialSetPalette(ButtonMaterial, ButtonPalette);
     NE_GUIButtonConfig(Button,
-                       // Appearance when pressed (texture, color, alpha)
                        ButtonMaterial, NE_White, 31,
-                       //Appearance when not pressed
                        ButtonMaterial, NE_Blue, 25);
 }
 
@@ -65,7 +63,7 @@ void MenuLevel_DrawSub() {
 
 void MenuLevel_Update(uint32 keys) {
     if (NE_GUIObjectGetEvent(Button))
-        HG_LevelLoad(MenuLevel);
+        HG_LevelLoad(TestLevel);
 }
 
 void MenuLevel_Unload() {

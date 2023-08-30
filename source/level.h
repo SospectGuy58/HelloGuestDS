@@ -8,6 +8,7 @@ typedef struct {
     void (*drawSub) (void);
     void (*update) (uint32);
     void (*unload) (void);
+    int loaded;
 }HG_Level;
 
 extern HG_Level *CurrentLevel;

@@ -17,19 +17,19 @@ void TestLevel_Load() {
     Mat_Grass = NE_MaterialCreate();
 
     // Loading
-    NE_MaterialTexLoad(Mat_Grass, NE_A1RGB5, 64, 64,
+    NE_ModelLoadStaticMesh(Landscape, (u32 *)ground_bin);
+    NE_MaterialTexLoad(Mat_Grass, NE_RGB5, 64, 64,
                        NE_TEXGEN_TEXCOORD | NE_TEXTURE_WRAP_S | NE_TEXTURE_WRAP_T,
                        (u8 *)grass_tex_bin);
-    
-    NE_ModelLoadStaticMesh(Landscape, (u32 *)ground_bin);
 
     // Setups
-    NE_CameraSetI(MainCamera,
-                  0, 0, 0,
-                  1, 0, 0, 
-                  0, 1, 0
-    );
+    NE_CameraSet(MainCamera,
+                 0, 0, 1,  // Position
+                 0, 0, 0,  // Look at
+                 0, 1, 0);
+    NE_ClippingPlanesSet(0.02, 5000);
     NE_ModelSetMaterial(Landscape, Mat_Grass);
+    NE_LightSet(0, NE_White, 0, 0, 1);
 }
 
 void TestLevel_DrawMain() {
@@ -67,6 +67,7 @@ void TestLevel_Update(uint32 keys) {
     if (keys & KEY_Y)
         NE_CameraRotateFree(MainCamera, 0, -1, 0);
 }
+
 void TestLevel_Unload() {
     NE_CameraDelete(MainCamera);
     NE_ModelDelete(Landscape);

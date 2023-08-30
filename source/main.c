@@ -32,8 +32,9 @@ int main(void)
 		Init
 	*/
     NE_InitDual3D();
-    NE_MainScreenSetOnBottom();
+    NE_TextureSystemReset(0, 0, NE_VRAM_AB);
 	NE_InitConsole();
+    //NE_MainScreenSetOnBottom();
 
     /*
         Levels
@@ -53,6 +54,8 @@ int main(void)
         HG_LevelUpdate(keys);
 
         NE_ProcessDual(DrawScreenMain, DrawScreenSub);
+
+        // printf("Main is on %s\n", NE_MainScreenIsOnTop() ? "top": "bottom");
     }
 
     return 0;
