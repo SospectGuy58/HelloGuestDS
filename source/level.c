@@ -50,7 +50,7 @@ void HG_LevelUpdate(uint32 keys) {
 
 void HG_LevelUnload() {
     if (CurrentLevel == NULL) {
-        printf("No level to unload\n");
+        printf("No level to unload!\n");
         return;
     }
 

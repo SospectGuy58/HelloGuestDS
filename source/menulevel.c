@@ -22,8 +22,7 @@ void MenuLevel_Load() {
     LogoPalette = NE_PaletteCreate();
     ButtonMaterial = NE_MaterialCreate();
     ButtonPalette = NE_PaletteCreate();
-    Button = NE_GUIButtonCreate(0, 192 - 64,  // Upper-left pixel
-                                           64, 192); // Down-right pixel
+    Button = NE_GUIButtonCreate(0, 192 - 64, 64, 192);
 
     // Loading
     NE_MaterialTexLoad(LogoMaterial, NE_PAL16, 128, 128, NE_TEXGEN_TEXCOORD,

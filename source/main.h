@@ -3,6 +3,9 @@
 
 #include "level.h"
 
+/*
+    Levels
+*/
 extern HG_Level *MenuLevel;
 extern HG_Level *TestLevel;
 

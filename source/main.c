@@ -1,9 +1,3 @@
-// SPDX-License-Identifier: CC0-1.0
-//
-// SPDX-FileContributor: Antonio Niño Díaz, 2008-2011, 2019, 2022-2023
-//
-// This file is part of Nitro Engine
-
 #include <NEMain.h>
 #include "level.h"
 #include "menulevel.h"
@@ -34,14 +28,17 @@ int main(void)
     NE_InitDual3D();
     NE_TextureSystemReset(0, 0, NE_VRAM_AB);
 	NE_InitConsole();
-    //NE_MainScreenSetOnBottom();
+    NE_MainScreenSetOnBottom();
 
     /*
-        Levels
+        Level creation
     */
     MenuLevel = HG_CreateLevel("menulevel", MenuLevel_Load, MenuLevel_DrawMain, MenuLevel_DrawSub, MenuLevel_Update, MenuLevel_Unload);
     TestLevel = HG_CreateLevel("testlevel", TestLevel_Load, TestLevel_DrawMain, TestLevel_DrawSub, TestLevel_Update, TestLevel_Unload);
 	
+    /*
+        Load initial level
+    */
     HG_LevelLoad(MenuLevel);
 
     while (1)
@@ -51,11 +48,10 @@ int main(void)
         scanKeys();
         uint32 keys = keysHeld();
 
+        // Update current level
         HG_LevelUpdate(keys);
 
         NE_ProcessDual(DrawScreenMain, DrawScreenSub);
-
-        // printf("Main is on %s\n", NE_MainScreenIsOnTop() ? "top": "bottom");
     }
 
     return 0;
