@@ -67,4 +67,10 @@ void MenuLevel_Update(uint32 keys) {
 
 void MenuLevel_Unload() {
     NE_CameraDelete(Camera);
+    NE_SpriteDelete(LogoSprite);
+    NE_GUIDeleteObject(Button);
+    NE_MaterialDelete(LogoMaterial);
+    NE_PaletteDelete(LogoPalette);
+    NE_MaterialDelete(ButtonMaterial);
+    NE_PaletteDelete(ButtonPalette);
 }

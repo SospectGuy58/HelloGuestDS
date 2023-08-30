@@ -24,8 +24,8 @@ void TestLevel_Load() {
 
     // Setups
     NE_CameraSet(MainCamera,
-                 0, 0, 1,  // Position
-                 0, 0, 0,  // Look at
+                 1, 0.3, 0,
+                 0, 0.3, 0,
                  0, 1, 0);
     NE_ClippingPlanesSet(0.02, 5000);
     NE_ModelSetMaterial(Landscape, Mat_Grass);
