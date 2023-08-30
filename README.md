@@ -1,6 +1,2 @@
 # Hello Guest DS
-hello guest on the nintendo ds
-
-# Requirements
-- devkitPro NDS tools
-- Nitro Engine Lib
+Hello Guest ported to the Nintendo DS using [Nitro Engine](https://github.com/AntonioND/nitro-engine)
