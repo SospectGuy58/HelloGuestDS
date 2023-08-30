@@ -52,12 +52,12 @@ void MenuLevel_Load() {
 
 void MenuLevel_DrawMain() {
     NE_2DViewInit();
-    NE_GUIDraw();
+    NE_SpriteDraw(LogoSprite);
 }
 
 void MenuLevel_DrawSub() {
     NE_2DViewInit();
-    NE_SpriteDraw(LogoSprite);
+    NE_GUIDraw();
 }
 
 void MenuLevel_Update(uint32 keys) {
