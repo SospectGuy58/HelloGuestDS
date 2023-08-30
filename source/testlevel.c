@@ -14,14 +14,14 @@ void TestLevel_Load() {
     // Allocation
     MainCamera = NE_CameraCreate();
     Landscape = NE_ModelCreate(NE_Static);
-    Mat_Grass = NE_MaterialCreate;
+    Mat_Grass = NE_MaterialCreate();
 
     // Loading
     NE_MaterialTexLoad(Mat_Grass, NE_A1RGB5, 64, 64,
                        NE_TEXGEN_TEXCOORD | NE_TEXTURE_WRAP_S | NE_TEXTURE_WRAP_T,
                        (u8 *)grass_tex_bin);
     
-    Landscape = NE_ModelLoadStaticMesh(Landscape, (u32 *)ground_bin);
+    NE_ModelLoadStaticMesh(Landscape, (u32 *)ground_bin);
 
     // Setups
     NE_CameraSetI(MainCamera,

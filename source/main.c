@@ -6,8 +6,8 @@
 
 #include <NEMain.h>
 #include "level.h"
-#include "levels/menulevel.h"
-#include "levels/testlevel.h"
+#include "menulevel.h"
+#include "testlevel.h"
 
 HG_Level *MenuLevel;
 HG_Level *TestLevel;
@@ -33,7 +33,7 @@ int main(void)
 	*/
     NE_InitDual3D();
     NE_MainScreenSetOnBottom();
-	// NE_InitConsole();
+	NE_InitConsole();
 
     /*
         Levels

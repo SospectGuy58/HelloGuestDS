@@ -1,5 +1,7 @@
 #include <NEMain.h>
 #include "menulevel.h"
+#include "level.h"
+#include "main.h"
 
 #include "logo_tex_bin.h"
 #include "logo_pal_bin.h"
@@ -62,7 +64,8 @@ void MenuLevel_DrawSub() {
 }
 
 void MenuLevel_Update(uint32 keys) {
-    if (NE_GUIObjectGetEvent(Button));
+    if (NE_GUIObjectGetEvent(Button))
+        HG_LevelLoad(MenuLevel);
 }
 
 void MenuLevel_Unload() {
