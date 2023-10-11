@@ -6,4 +6,3 @@ lib
 tools
 *.elf
 *.nds
-source/main.txt

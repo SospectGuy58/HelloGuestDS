@@ -8,13 +8,11 @@ HG_Level *TestLevel;
 
 void DrawScreenMain(void)
 {
-    NE_ClearColorSet(15 << 10, 31, 63);
     HG_LevelDrawMain();
 }
 
 void DrawScreenSub(void)
 {
-    NE_ClearColorSet(15 << 5, 31, 63);
     HG_LevelDrawSub();
 }
 
@@ -52,13 +50,6 @@ int main(void)
 
         // Update current level
         HG_LevelUpdate(keys);
-
-        // Lock CPU until the key is released, as a test
-        while (keys & KEY_A)
-        {
-            scanKeys();
-            keys = keysHeld();
-        }
     }
 
     return 0;

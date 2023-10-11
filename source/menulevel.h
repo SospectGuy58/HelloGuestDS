@@ -4,9 +4,9 @@
 #include <NEMain.h>
 
 extern NE_Camera *Camera;
-extern NE_Sprite *LogoSprite;
-extern NE_Material *LogoMaterial, *ButtonMaterial;
-extern NE_Palette *LogoPalette, *ButtonPalette;
+extern NE_Sprite *LogoSprite, *MenuTopSprite, *MenuBottomSprite;
+extern NE_Material *LogoMaterial, *ButtonMaterial, *MenuTopMaterial, *MenuBottomMaterial;
+extern NE_Palette *LogoPalette, *ButtonPalette, *MenuTopPalette, *MenuBottomPalette;
 extern NE_GUIObj *Button;
 
 extern void MenuLevel_Load();
