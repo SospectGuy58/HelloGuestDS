@@ -8,11 +8,13 @@ HG_Level *TestLevel;
 
 void DrawScreenMain(void)
 {
+    NE_ClearColorSet(15 << 10, 31, 63);
     HG_LevelDrawMain();
 }
 
 void DrawScreenSub(void)
 {
+    NE_ClearColorSet(15 << 5, 31, 63);
     HG_LevelDrawSub();
 }
 
@@ -22,18 +24,19 @@ int main(void)
     irqSet(IRQ_VBLANK, NE_VBLFunc);
     irqSet(IRQ_HBLANK, NE_HBLFunc);
 
-	/*
-		Init
-	*/
-    NE_InitDual3D();
+    /*
+        Init
+    */
+    NE_InitDual3D_DMA();
     NE_InitConsole();
+    NE_MainScreenSetOnBottom();
 
     /*
         Level creation
     */
     MenuLevel = HG_CreateLevel("menulevel", MenuLevel_Load, MenuLevel_DrawMain, MenuLevel_DrawSub, MenuLevel_Update, MenuLevel_Unload);
     TestLevel = HG_CreateLevel("testlevel", TestLevel_Load, TestLevel_DrawMain, TestLevel_DrawSub, TestLevel_Update, TestLevel_Unload);
-	
+    
     /*
         Load initial level
     */
@@ -42,6 +45,7 @@ int main(void)
     while (1)
     {
         NE_WaitForVBL(NE_UPDATE_GUI);
+        NE_ProcessDual(DrawScreenMain, DrawScreenSub);
 
         scanKeys();
         uint32 keys = keysHeld();
@@ -49,7 +53,12 @@ int main(void)
         // Update current level
         HG_LevelUpdate(keys);
 
-        NE_ProcessDual(DrawScreenMain, DrawScreenSub);
+        // Lock CPU until the key is released, as a test
+        while (keys & KEY_A)
+        {
+            scanKeys();
+            keys = keysHeld();
+        }
     }
 
     return 0;
