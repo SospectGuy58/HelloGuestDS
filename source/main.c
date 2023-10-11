@@ -26,8 +26,7 @@ int main(void)
 		Init
 	*/
     NE_InitDual3D();
-    // NE_TextureSystemReset(0, 0, NE_VRAM_AB);
-	// NE_InitConsole();
+    NE_InitConsole();
 
     /*
         Level creation
