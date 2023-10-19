@@ -11,25 +11,44 @@ NE_Model *Landscape;
 NE_Material *Mat_Grass;
 
 void TestLevel_Load() {
-    // Allocation
+    /*
+        Allocation
+    */
+    // Camera
     MainCamera = NE_CameraCreate();
+
+    // Landscape
     Landscape = NE_ModelCreate(NE_Static);
+
+    // Mat_Grass
     Mat_Grass = NE_MaterialCreate();
 
-    // Loading
+    /*
+        Loading
+    */
+    // Landscape
     NE_ModelLoadStaticMesh(Landscape, (u32 *)ground_bin);
+
+    // Mat_Grass 
     NE_MaterialTexLoad(Mat_Grass, NE_RGB5, 64, 64,
                        NE_TEXGEN_TEXCOORD | NE_TEXTURE_WRAP_S | NE_TEXTURE_WRAP_T,
                        (u8 *)grass_tex_bin);
 
-    // Setups
+    /*
+        Setups
+    */
+    // Camera
     NE_CameraSet(MainCamera,
                  1, 0.3, 0,
                  0, 0.3, 0,
                  0, 1, 0);
     NE_ClippingPlanesSet(0.02, 5000);
-    NE_ModelSetMaterial(Landscape, Mat_Grass);
+
+    // Lighting
     NE_LightSet(0, NE_White, 0, 0, 1);
+
+    // Landscape
+    NE_ModelSetMaterial(Landscape, Mat_Grass);
 }
 
 void TestLevel_DrawMain() {
